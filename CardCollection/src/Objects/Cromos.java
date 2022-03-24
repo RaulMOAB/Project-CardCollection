@@ -10,11 +10,11 @@ package Objects;
  */
 public class Cromos {
 
-    private String description;
     private int numCard;
+    private String description;
 
-    public Cromos(String description, int numCard) {
-        this.description = description;
+    public Cromos( int numCard, String description) throws DescriptionException {
+        this.setDescription(description);
         this.numCard = numCard;
     }
 
@@ -28,13 +28,17 @@ public class Cromos {
     }
 
     public void setDescription(String description) throws DescriptionException {
-        do {
+     
+        //MAB no hay el bucle, por que sino si te llega una description corta
+        //entrarias en un bucle por que no pides nunca una nueva descripcion
+        //el bucle en caso de quererlo, deberia ir a la linea que llama al 
+        //setdescritpiton
             if (description.length() >= 3) {
                 this.description = description;
             } else {
                 throw new  DescriptionException("La descripción debe contener 3 o más carácteres"); 
             }
-        } while (description.length() < 3);
+     
 
     }
 
